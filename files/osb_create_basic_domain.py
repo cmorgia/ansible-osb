@@ -16,7 +16,7 @@ nodemanager_home = os.getenv('NODE_MANAGER_HOME')
 weblogic_home = os.getenv('WEBLOGIC_HOME')
 
 weblogic_template = middleware_home + '/wlserver/common/templates/wls/wls.jar'
-osb_template = middleware_home + '/osb/common/templates/wls/oracle.osb_template.jar'
+osb_template = middleware_home + '/osb/common/templates/wls/oracle.osb_template_12.1.3.jar'
 
 print "[INFO] Create domain '%s' " % domain_name
 readTemplate(weblogic_template)

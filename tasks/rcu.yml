@@ -23,6 +23,8 @@
 
 - name: Create OSB schemas
   shell: "{{ middleware_home_dir }}/oracle_common/bin/rcu -silent -createRepository -databaseType ORACLE -connectString {{ oracle_db_address }}:{{ oracle_db_port }}:{{ oracle_db_sid }} -dbUser {{ oracle_db_user }} -dbRole {{ oracle_db_role }} -schemaPrefix {{ osb_rcu_schema_prefix }} -useSamePasswordForAllSchemaUsers true -component {{ osb_rcu_components | join(' -component ') }} -f <  {{ oracle.home_dir }}/.rcu_passwords > {{ osb.logs_dir }}/create_osb_schemas_$(date +'%F').log 2>&1"
+  environment:
+    JAVA_HOME: /usr/java/default
   register: rcu_create_cmd
   when: not osb_schemas_created
   tags:
