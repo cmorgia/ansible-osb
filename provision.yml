@@ -1,6 +1,8 @@
 ---
 
 - hosts: ansible-vm
+  environment:
+    JAVA_HOME: /usr/java/default
   roles:
     - role: ansible-java
       java_version: 8
@@ -17,8 +19,15 @@
 
     - role: ansible-osb
       osb_jar_path: '/files/fmw_12.1.3.0.0_osb.jar'
-      oracle_db_address: '127.0.0.1'
+      oracle_db_address: '192.168.33.101'
       oracle_db_sid: 'orcl'
       oracle_db_password: 'password'
-      osb_admin_server_listen_address: '127.0.0.1'
-      osb_managed_server_listen_address: '127.0.0.1'
+      osb_admin_server_listen_address: '192.168.33.101'
+      osb_managed_server_listen_address: '192.168.33.101'
+
+    - role: ansible-oag
+      oag_prefix: "{{ middleware_home_dir }}"
+      oag_username: 'admin'
+      oag_password: 'password'
+      oag_hostname: '192.168.33.101'
+      oag_port: '8090'

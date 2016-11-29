@@ -25,8 +25,8 @@ osb:
 #
 # Default JVM Heap size for AdminServer, Managed Servers and Coherence
 #
-osb_admin_server_heap_size: '512m'
-osb_admin_server_perm_size: '256m'
+osb_admin_server_heap_size: '1024m'
+osb_admin_server_perm_size: '512m'
 osb_managed_server_heap_size: '1024m'
 osb_managed_server_perm_size: '512m'
 osb_coherence_server_heap_size: '256m'
