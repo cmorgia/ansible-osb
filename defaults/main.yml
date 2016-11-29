@@ -14,7 +14,7 @@ osb_version: '12c'
 #
 oracle_db_address: 'localhost'
 oracle_db_port: '1521'
-oracle_db_sid: 'xe'
+oracle_db_sid: 'orcl'
 oracle_db_user: 'sys'
 oracle_db_password: 'password'
 oracle_db_role: 'SYSDBA'
