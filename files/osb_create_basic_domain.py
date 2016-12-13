@@ -154,7 +154,7 @@ cmo.setNodeManagerPasswordEncrypted(nodemanager_password)
 
 print '[INFO] Configuring AdminServer..'
 cd('/Server/' + admin_server_name)
-cmo.setListenAddress(admin_server_listen_address)
+cmo.setListenAddress('All Local Addresses')
 cmo.setListenPort(int(admin_server_listen_port))
 create(admin_server_name,'SSL')
 cd('SSL/' + admin_server_name)
