@@ -53,6 +53,10 @@
   when: ansible_virtualization_type != 'docker'
   become: yes
   become_user: root
+
+- name: reload systemd
+  become: yes
+  command: systemctl daemon-reload
   
 - name: Enable Nodemanager service
   service:
