@@ -87,7 +87,6 @@
 - name: Wait for Managed Servers to startup
   wait_for:
     port: "{{ osb_managed_server_listen_port_start }}"
-    host: "{{ osb_managed_server_listen_address }}"
     delay: 8
     timeout: 90
   ignore_errors: true
