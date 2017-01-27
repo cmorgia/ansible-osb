@@ -13,6 +13,12 @@ create_basic_domain() {
 		${SCRIPT_PATH}/osb_create_basic_domain.py
 }
 
+create_users_and_roles() {
+	${FUSION_MIDDLEWARE_HOME}/common/bin/wlst.sh \
+	  -loadProperties ${SCRIPT_PATH}/../config/osb_environment.properties \
+		${SCRIPT_PATH}/osb_create_api_manager_users.py
+}
+
 change_memory_settings() {
 
 	echo '[INFO] Change DERBY flag'
@@ -21,5 +27,7 @@ change_memory_settings() {
 }
 
 create_basic_domain
+
+create_users_and_roles
 
 change_memory_settings
