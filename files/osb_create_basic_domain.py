@@ -71,6 +71,11 @@ for i in range(len(machines)):
         server.setCluster(cluster)
         server.setMachine(machine)
         cd('Servers/' + managed_server_name)
+        create(managed_server_name,'SSL')
+        cd('SSL/'+managed_server_name)
+        managed_server_ssl_listen_port = int(managed_server_ssl_listen_port_start) + j
+        server.setListenPort(managed_server_ssl_listen_port)
+        cd('../..')
         print "[INFO] [%s] Configure overload protection"
         overload_protection = create(managed_server_name,'OverloadProtection')
         overload_protection.setFailureAction('force-shutdown')

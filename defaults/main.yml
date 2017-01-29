@@ -66,6 +66,7 @@ osb_admin_password: 'manager1'
 #
 osb_managed_servers_per_machine: 1
 osb_managed_server_listen_port_start: 8000
+osb_managed_server_ssl_listen_port_start: 8043
 osb_managed_server_listen_address: "localhost"
 
 #
