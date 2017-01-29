@@ -14,6 +14,7 @@ oracle:
 osb_already_installed: false
 osb_schemas_created: false
 osb_already_configured: false
+oam_already_configured: false
 
 osb:
   supported_versions: ['12c']

@@ -1,0 +1,14 @@
+---
+
+
+#
+# Create and configure the OAM
+#
+
+- name: Create the API Manager users
+  shell: "{{ osb.scripts_dir }}/osb_create_api_manager_users.sh > {{ osb.logs_dir }}/create_oam_users_$(date +'%F').log 2>&1"
+  register: create_oam_users_cmd
+  
+- set_fact:
+    oam_already_configured: true
+  when: create_oam_users_cmd.rc == 0

@@ -34,6 +34,14 @@
   become: yes
   become_user: "{{ oracle.user }}"
 
+- include: configure_oam.yml
+  become: yes
+  become_user: "{{ oracle.user }}"
+  when: not oam_already_configured
+  tags:
+    - osb-configure
+    - osb-install-and-init  
+
 - name: Add custom facts for OSB
   template:
     src: osb.fact.j2
