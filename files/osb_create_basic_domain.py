@@ -17,6 +17,7 @@ weblogic_home = os.getenv('WEBLOGIC_HOME')
 
 weblogic_template = middleware_home + '/wlserver/common/templates/wls/wls.jar'
 osb_template = middleware_home + '/osb/common/templates/wls/oracle.apimanager_template.jar'
+rpc_template = middleware_home + '/oracle_common/common/templates/wls/oracle.wls-webservice-template.jar'
 
 print "[INFO] Create domain '%s' " % domain_name
 readTemplate(weblogic_template)
@@ -40,6 +41,7 @@ readDomain(domain_configuration_home)
 
 print '[INFO] Add OSB tempalte..'
 addTemplate(osb_template)
+addTemplate(rpc_template)
 
 print "[WARN] Remove default server 'osb_server1' created by the OSB tempalte"
 delete('osb_server1', 'Server')
@@ -70,12 +72,11 @@ for i in range(len(machines)):
         server.setListenAddress(managed_server_listen_address)
         server.setCluster(cluster)
         server.setMachine(machine)
+        #cd('Servers/' + managed_server_name+'/SSL/'+managed_server_name)
+        #managed_server_ssl_listen_port = int(managed_server_ssl_listen_port_start) + j
+        #setListenPort(managed_server_ssl_listen_port)
+        #setEnabled('true')
         cd('Servers/' + managed_server_name)
-        create(managed_server_name,'SSL')
-        cd('SSL/'+managed_server_name)
-        managed_server_ssl_listen_port = int(managed_server_ssl_listen_port_start) + j
-        server.setListenPort(managed_server_ssl_listen_port)
-        cd('../..')
         print "[INFO] [%s] Configure overload protection"
         overload_protection = create(managed_server_name,'OverloadProtection')
         overload_protection.setFailureAction('force-shutdown')
