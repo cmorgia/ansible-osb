@@ -29,7 +29,7 @@ for user in users:
 
 for monitor in ['API Curators','API Developers','Deployers']:
 	atnr.addMemberToGroup('Monitors',monitor)
-
+	atnr.addMemberToGroup('Administrators',monitor)
 activate()
 
 try:
