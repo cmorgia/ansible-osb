@@ -175,6 +175,10 @@ cd('AuthenticationProviders/DefaultAuthenticator')
 set('ControlFlag', 'SUFFICIENT')
 cd('../../')
 
+print 'Fixing deployment issue for Domain Singleton'
+cd('/AppDeployments/Service Bus Domain Singleton Marker Application')
+set('Targets',jarray.array([ObjectName('com.bea:Name=server0_localhost,Type=Server')], ObjectName))
+
 print '[INFO] Save changes'
 updateDomain()
 closeDomain()
